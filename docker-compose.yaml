@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  my_nginx: 
+    image: nginx
+    
+    # mapear um diretorio dentro do container no meu computador.
+    # nesse exemplo o diretório ./my_nginx irá substituir o diretório dos arquivos HTML do nginx /usr/share/nginx/html/
+    volumes:
+      - ./my_nginx:/usr/share/nginx/html/
+
+    ports:
+      - 8080:80
+  
+  redis:
+    image: redis:alpine
+    expose: 
+      - 6379
+  
